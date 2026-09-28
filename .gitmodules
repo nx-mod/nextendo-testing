@@ -74,10 +74,6 @@
 	path = services/nncs
 	url = https://github.com/nx-mod/nextendo-nncs.git
 	branch = testing
-[submodule "services/npns-nx"]
-	path = services/npns-nx
-	url = https://github.com/nx-mod/nextendo-npns-nx.git
-	branch = testing
 [submodule "console/nro-nx"]
 	path = console/nro-nx
 	url = https://github.com/nx-mod/nextendo-nro-nx.git

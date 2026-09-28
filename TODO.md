@@ -16,9 +16,11 @@ Network side only; each server repo keeps its own `TODO.md` (games too).
 
 ## Services
 
-- **bcat-nx**: push new news to consoles (npns) instead of waiting for their scheduled check; opening a channel
+- **bcat-nx**: push new news to consoles (penne) instead of waiting for their scheduled check; opening a channel
   (qlaunch `online_archives` format); game BCAT data (`nx_data_*`); per-game channels.
-- **baas-jwks**: test importing a new account; auto-add consoles linked on production; penne push stream (off).
+- **penne (push)**: frontline protocol (capturing now), then push to consoles; own server and repo `penne-nx`
+  (npns-nx removed: NPNS is gone since firmware 18).
+- **baas-jwks**: test importing a new account; auto-add consoles linked on production.
 - **nnaccount-nx**: sign-in page look; password reset; account settings.
 - **sni-router**: no eShop server (eShop hosts dropped).
 

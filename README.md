@@ -35,7 +35,7 @@ production at them. Servers keep their data under `stack\state`, logs in `stack\
 ## Layout
 
     services/  account, dauth (dauth + aauth + licences), scsi, nncs, nex, sni-router, baas-jwks, dashboard,
-               site, docs, tls-front, and nx-mod's nnaccount-nx, bcat-nx, tagaya-nx, npns-nx,
+               site, docs, tls-front, and nx-mod's nnaccount-nx, bcat-nx, tagaya-nx,
                telemetry-nx, eos-nx, gamespy-nx
     games/     every Nextendo game server, nx-mod's diablo-3-nx, advance-wars-nx, borderlands-1-nx,
                torchlight-2-nx, and crash-team-racing
@@ -47,7 +47,7 @@ production at them. Servers keep their data under `stack\state`, logs in `stack\
 Written from scratch by nx-mod (`-nx`):
 - **nnaccount-nx** — the Nintendo Account side (a rewrite of a private upstream service).
 - **diablo-3-nx**, **advance-wars-nx**, **borderlands-1-nx**, **torchlight-2-nx** — game servers.
-- **bcat-nx** (+ **bcat-mitm-nx** on the console), **tagaya-nx**, **npns-nx**, **telemetry-nx**, **eos-nx**,
+- **bcat-nx** (+ **bcat-mitm-nx** on the console), **tagaya-nx**, **telemetry-nx**, **eos-nx**,
   **gamespy-nx** — services.
 - **nro-nx** — Prelude rewritten on the Aether GUI around the new servers (builds `nextendo-nx.nro`).
 
