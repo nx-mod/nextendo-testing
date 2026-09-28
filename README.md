@@ -32,7 +32,7 @@ production at them. Servers keep their data under `stack\state`, logs in `stack\
                telemetry-nx, eos-nx, gamespy-nx
     games/     every Nextendo game server, nx-mod's diablo-3-nx, advance-wars-nx, borderlands-1-nx,
                torchlight-2-nx, and crash-team-racing
-    console/   prelude (nextendo-nx, nx-mod's rewrite of Prelude), bcat-mitm-nx
+    console/   nro-nx (nx-mod's rewrite of Prelude, builds nextendo-nx.nro), bcat-mitm-nx
     clients/   citron (testing-android), citron-android, ryujinx, app-android, app-ios
 
 ## nx-mod changes
@@ -42,7 +42,7 @@ Written from scratch by nx-mod (`-nx`):
 - **diablo-3-nx**, **advance-wars-nx**, **borderlands-1-nx**, **torchlight-2-nx** — game servers.
 - **bcat-nx** (+ **bcat-mitm-nx** on the console), **tagaya-nx**, **npns-nx**, **telemetry-nx**, **eos-nx**,
   **gamespy-nx** — services.
-- **prelude** (`nextendo-nx`) — Prelude rewritten on the Aether GUI around the new servers.
+- **nro-nx** — Prelude rewritten on the Aether GUI around the new servers (builds `nextendo-nx.nro`).
 
 Changes to Nextendo's own servers:
 - **account** — local open mode (a new e-mail creates its account, everyone friends), RS256 BaaS id_tokens.

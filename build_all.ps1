@@ -59,17 +59,17 @@ $dkp  = if ($env:DEVKITPRO) { $env:DEVKITPRO } else { 'C:\devkitPro' }
 $bash = (Get-Command bash -ErrorAction SilentlyContinue).Source
 if (-not $bash -and (Test-Path 'C:\Program Files\Git\bin\bash.exe')) { $bash = 'C:\Program Files\Git\bin\bash.exe' }
 if ((Test-Path $dkp) -and $bash) {
-    git -C $root submodule update --init --recursive --depth 50 -- console/prelude   # lib/Aether
+    git -C $root submodule update --init --recursive --depth 50 -- console/nro-nx   # lib/Aether
     $ips = (& (Join-Path $root 'run_all.ps1') -Action ip) -split ' '
     $out = Join-Path $root 'stack\out'
     New-Item -ItemType Directory -Force -Path $out | Out-Null
-    $pre = (Join-Path $root 'console\prelude') -replace '\\', '/' -replace '^([A-Za-z]):', { '/' + $_.Groups[1].Value.ToLower() }
+    $pre = (Join-Path $root 'console\nro-nx') -replace '\\', '/' -replace '^([A-Za-z]):', { '/' + $_.Groups[1].Value.ToLower() }
     $dk  = $dkp -replace '\\', '/' -replace '^([A-Za-z]):', { '/' + $_.Groups[1].Value.ToLower() }
     & $bash -lc "cd '$pre' && export DEVKITPRO='$dk' DEVKITA64='$dk/devkitA64' && make -C lib/Aether -j8 >/dev/null 2>&1; make clean >/dev/null 2>&1; make -j8 LAN_HOST=$($ips[0]) LAN_HOST2=$($ips[1]) >/dev/null 2>&1"
-    $nro = Join-Path $root 'console\prelude\nextendo-nx.nro'
-    if (Test-Path $nro) { Copy-Item $nro $out -Force; $ok += "prelude (stack\out\nextendo-nx.nro for $($ips[0]))" }
-    else { $failed += 'prelude' }
-} else { $skipped += 'prelude (devkitPro or bash not found)' }
+    $nro = Join-Path $root 'console\nro-nx\nextendo-nx.nro'
+    if (Test-Path $nro) { Copy-Item $nro $out -Force; $ok += "nro-nx (stack\out\nextendo-nx.nro for $($ips[0]))" }
+    else { $failed += 'nro-nx' }
+} else { $skipped += 'nro-nx (devkitPro or bash not found)' }
 
 Write-Host ("built   {0}: {1}" -f $ok.Count, ($ok -join ' '))
 if ($skipped) { Write-Host ("skipped {0} (no Go server): {1}" -f $skipped.Count, ($skipped -join ' ')) }

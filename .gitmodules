@@ -78,9 +78,9 @@
 	path = services/npns-nx
 	url = https://github.com/nx-mod/nextendo-npns-nx.git
 	branch = testing
-[submodule "console/prelude"]
-	path = console/prelude
-	url = https://github.com/nx-mod/nextendo-prelude.git
+[submodule "console/nro-nx"]
+	path = console/nro-nx
+	url = https://github.com/nx-mod/nextendo-nro-nx.git
 	branch = testing
 [submodule "clients/ryujinx"]
 	path = clients/ryujinx
