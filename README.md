@@ -20,7 +20,8 @@ Needs Go and git; devkitPro (with the switch SDL2 portlibs) and Git Bash for `ne
 | `stack.cfg` | `HOST` / `HOST2` (this PC's LAN addresses; nncs needs two), which `GAMES` and `SERVICES` run |
 | `config/<server>.env` | each server's environment (`${HOST}`, `${CERTS}`, `${STATE}`... are filled in) |
 | `config/_games.env` | shared by every game server |
-| `stack/certs/`, `stack/secrets/` | the stack's CA, certificates, keys and secrets |
+| `stack/certs/`, `stack/secrets/` | the stack's CA, certificates, keys and secrets (incl. the CTR signing key) |
+| `games.txt` | the games, and the game versions known to work |
 
 LAN testing only: keys and secrets are committed on purpose, so anyone on the LAN can run the stack. Never point
 production at them. Servers keep their data under `stack\state`, logs in `stack\logs`.

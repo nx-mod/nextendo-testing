@@ -1,0 +1,36 @@
+Nextendo testing stack - games, and the game versions known to work.
+Only versions written down in a server's README/notes are listed; "latest" = no version recorded, run the latest update.
+% = upstream's progress figure (services/site). Title ids are the base game.
+
+game                                   title id           tested version / DLC                                  %
+-------------------------------------  -----------------  ----------------------------------------------------  ----
+Diablo III: Eternal Collection         01001B300B9BE000   2.7.6 (CFW Switch), 2.7.7 (Citron), update v1441792     90
+                                                          + all DLC, season 37. Must be updated to join.
+Crash Team Racing Nitro-Fueled         0100F9F00C696000   1.0.15 (challenge data), needs the signed client mod   100
+Clubhouse Games: 51 Worldwide Classics 010047700D540000   2.0.1                                                  100
+Super Mario 3D World + Bowser's Fury   -                  1.2.2 (Ryujinx-Nextendo 1.8.2)                          -
+Super Mario Bros. 35                   0100277011F1A000   latest                                                 100
+Luigi's Mansion 3                      0100DCA0064A6000   latest                                                 100
+ARMS                                   01009B500007C000   latest                                                 100
+Monster Hunter Generations Ultimate    0100770008DD8000   latest                                                 100
+METAL GEAR SOLID: Peace Walker         0100C6F01C4F8000   latest                                                 100
+Mario Party Superstars                 01006FE013472000   latest                                                 100
+Mario Tennis Aces                      0100BDE00862A000   latest                                                  95
+Mario Kart 8 Deluxe                    0100152000022000   latest                                                  91
+Splatoon 2                             0100F8F0000A2000   latest                                                  87
+Super Smash Bros. Ultimate             01006A800016E000   latest                                                  84
+Splatoon 3                             0100C2500FC20000   latest                                                  78
+Animal Crossing: New Horizons          01006F8002326000   latest                                                  73
+Super Mario Maker 2                    01009B90006DC000   latest                                                  70
+Mario Strikers: Battle League          010019401051C000   latest                                                  56
+Minecraft                              0100D71004694000   latest                                                  51
+Mario Golf: Super Rush                 -                  latest                                                   -
+Super Mario Odyssey                    -                  latest                                                   -
+Advance Wars 1+2: Re-Boot Camp         0100300012F2A000   latest (testing)                                         -
+Borderlands -                  latest (testing)                                         -
+Torchlight II                          -                  latest (testing)                                         -
+
+Not in this stack yet (upstream has no Go server here): Super Mario Bros. Wonder (1.2.1, Ryujinx client patch),
+Kirby's Dream Buffet, PAC-MAN 99, Overcooked! 2, Super Mario Party Jamboree.
+
+Diablo III and Crash Team Racing share hosts and ports: run one or the other (stack.cfg GAMES).
