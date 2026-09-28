@@ -6,9 +6,9 @@
 	path = games/acnh
 	url = https://github.com/nx-mod/nextendo-acnh.git
 	branch = testing
-[submodule "games/advance-wars"]
-	path = games/advance-wars
-	url = https://github.com/nx-mod/nextendo-advance-wars.git
+[submodule "games/advance-wars-nx"]
+	path = games/advance-wars-nx
+	url = https://github.com/nx-mod/nextendo-advance-wars-nx.git
 	branch = testing
 [submodule "clients/app-android"]
 	path = clients/app-android
@@ -30,14 +30,14 @@
 	path = services/bcat-nx
 	url = https://github.com/nx-mod/nextendo-bcat-nx.git
 	branch = testing
-[submodule "games/borderlands-1"]
-	path = games/borderlands-1
-	url = https://github.com/nx-mod/nextendo-borderlands-1.git
+[submodule "games/borderlands-1-nx"]
+	path = games/borderlands-1-nx
+	url = https://github.com/nx-mod/nextendo-borderlands-1-nx.git
 	branch = testing
 [submodule "clients/citron"]
 	path = clients/citron
 	url = https://github.com/nx-mod/nextendo-citron.git
-	branch = testing
+	branch = testing-android
 [submodule "clients/citron-android"]
 	path = clients/citron-android
 	url = https://github.com/nx-mod/nextendo-citron-android.git
@@ -50,9 +50,9 @@
 	path = services/dauth
 	url = https://github.com/nx-mod/nextendo-dauth.git
 	branch = testing
-[submodule "games/demonware"]
-	path = games/demonware
-	url = https://github.com/nx-mod/nextendo-demonware.git
+[submodule "games/diablo-3-nx"]
+	path = games/diablo-3-nx
+	url = https://github.com/nx-mod/nextendo-diablo-3-nx.git
 	branch = testing
 [submodule "services/docs"]
 	path = services/docs
@@ -110,9 +110,9 @@
 	path = services/telemetry-nx
 	url = https://github.com/nx-mod/nextendo-telemetry-nx.git
 	branch = testing
-[submodule "games/torchlight-2"]
-	path = games/torchlight-2
-	url = https://github.com/nx-mod/nextendo-torchlight-2.git
+[submodule "games/torchlight-2-nx"]
+	path = games/torchlight-2-nx
+	url = https://github.com/nx-mod/nextendo-torchlight-2-nx.git
 	branch = testing
 [submodule "services/nnaccount-nx"]
 	path = services/nnaccount-nx
@@ -197,4 +197,8 @@
 [submodule "games/super-mario-odyssey"]
 	path = games/super-mario-odyssey
 	url = https://github.com/nx-mod/nextendo-super-mario-odyssey.git
+	branch = testing
+[submodule "games/crash-team-racing"]
+	path = games/crash-team-racing
+	url = https://github.com/nx-mod/nextendo-crash-team-racing.git
 	branch = testing

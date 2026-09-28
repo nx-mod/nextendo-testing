@@ -1,62 +1,62 @@
-nextendo-testing
-================
+# nextendo-testing
 
-The whole Nextendo Network, as nx-mod's `testing` branches, in one place: every
-server, the console homebrew, the emulator clients. For running a complete
-Nextendo stack on a LAN and testing a real (CFW) Switch against it.
+The whole **Nextendo Network** on nx-mod's `testing` branches, in one repo: every server, the console
+homebrew and the clients, as submodules. Build it and run it on a LAN, then point a CFW Switch at it.
 
-Every submodule tracks its repo's `testing` branch:
+```powershell
+git clone --recurse-submodules https://github.com/nx-mod/nextendo-testing
+cd nextendo-testing
+.\build_all.ps1            # every server into stack\bin, nextendo-nx.nro into stack\out  (-Update: latest testing)
+.\run_all.ps1              # start everything (stop | status | hosts | ip)
+.\run_all.ps1 -Action hosts   # Atmosphere hosts for your LAN address -> stack\out\hosts.txt
+```
 
-    git clone --recurse-submodules https://github.com/nx-mod/nextendo-testing
-    git submodule update --remote        # move everything to the latest testing
+Needs Go and git; devkitPro (with the switch SDL2 portlibs) and Git Bash for `nextendo-nx.nro`.
 
-Layout
-------
+## Configuration
 
-    services/  account, dauth (dauth + aauth + licences), scsi, nncs, nex,
-               sni-router, baas-jwks, dashboard, site, docs, and the
-               nx-mod servers: nnaccount-nx, tls-front, tagaya-nx,
-               npns-nx, telemetry-nx, bcat-nx, eos-nx, gamespy-nx
-    games/     every Nextendo game server: demonware (Diablo III), ssbu,
-               acnh, mario-kart-8-deluxe, splatoon-2/3, super-mario-maker-2,
-               ... and nx-mod's advance-wars, borderlands-1, torchlight-2
-    console/   prelude (the Switch homebrew), bcat-mitm-nx (bcat module)
-    clients/   citron, citron-android, ryujinx, app-android, app-ios
+| file | what |
+|---|---|
+| `stack.cfg` | `HOST` / `HOST2` (this PC's LAN addresses; nncs needs two), which `GAMES` and `SERVICES` run |
+| `config/<server>.env` | each server's environment (`${HOST}`, `${CERTS}`, `${STATE}`... are filled in) |
+| `config/_games.env` | shared by every game server |
+| `stack/certs/`, `stack/secrets/` | the stack's CA, certificates, keys and secrets |
 
-LAN testing only. Keys, certificates and secrets that a server needs to run
-are committed on purpose: anyone on the LAN should be able to run the stack.
-Never point a production console or server at these keys.
+LAN testing only: keys and secrets are committed on purpose, so anyone on the LAN can run the stack. Never point
+production at them. Servers keep their data under `stack\state`, logs in `stack\logs`.
 
-What nx-mod changes in the network
-----------------------------------
+## Layout
 
-Console sign-in, fully local (nothing goes to production):
-- Nintendo Account side served locally (tokens, users/me, certificates,
-  the account-link page; a new e-mail creates its account on first login).
-- BaaS answers a real console: camelCase token replies (2124-3121 without),
-  device-account login mapped to the console's user, users/<id>, devices
-  snapshot, friends/blocks lists; the login idToken carries the signed
-  Nextendo identity the game servers check.
-- dauth/dragons: rights/available_elicenses answered (online games stopped
-  at the licence check without it).
-- A local CA for the stack's certificates, trusted by Prelude's browser
-  bundles, so the console's browser accepts the stack (account-link page).
+    services/  account, dauth (dauth + aauth + licences), scsi, nncs, nex, sni-router, baas-jwks, dashboard,
+               site, docs, tls-front, and nx-mod's nnaccount-nx, bcat-nx, tagaya-nx, npns-nx,
+               telemetry-nx, eos-nx, gamespy-nx
+    games/     every Nextendo game server, nx-mod's diablo-3-nx, advance-wars-nx, borderlands-1-nx,
+               torchlight-2-nx, and crash-team-racing
+    console/   prelude (nextendo-nx, nx-mod's rewrite of Prelude), bcat-mitm-nx
+    clients/   citron (testing-android), citron-android, ryujinx, app-android, app-ios
 
-New services (nx-mod): nnaccount (the Nintendo Account side, private
-upstream), tls-front (TLS in front of the HTTP services), tagaya (title
-version list), npns (push notifications), telemetry (sink), bcat (a real
-delivery-cache server, with bcat-mitm-nx on the console; upstream installs
-BCAT data through Prelude and LayeredFS instead), eos (Epic Online
-Services), gamespy (Wii/DS Wi-Fi Connection). Application auth stays in
-dauth, which already serves it.
+## nx-mod changes
 
-Game servers: Diablo III (demonware) plays online on a CFW Switch;
-Advance Wars, Borderlands 1 and Torchlight 2 record unhandled NEX methods
-on the dashboard for further work.
+Written from scratch by nx-mod (`-nx`):
+- **nnaccount-nx** — the Nintendo Account side (a rewrite of a private upstream service).
+- **diablo-3-nx**, **advance-wars-nx**, **borderlands-1-nx**, **torchlight-2-nx** — game servers.
+- **bcat-nx** (+ **bcat-mitm-nx** on the console), **tagaya-nx**, **npns-nx**, **telemetry-nx**, **eos-nx**,
+  **gamespy-nx** — services.
+- **prelude** (`nextendo-nx`) — Prelude rewritten on the Aether GUI around the new servers.
 
-Status
-------
+Changes to Nextendo's own servers:
+- **account** — local open mode (a new e-mail creates its account, everyone friends), RS256 BaaS id_tokens.
+- **baas-jwks** — BaaS for a real console: camelCase tokens, device login, users, snapshot.
+- **dauth** — the licence check online games need (`available_elicenses`).
+- **sni-router** — table-driven routing for every host, a TLS record trace.
+- **nex** — Eagle relay, rankings, MHGU; **nncs** — explicit binds; **scsi** — `SCSI_LISTEN`;
+  **dashboard** — ARMS/MTA; **site** — no Turnstile locally; **splatoon-3** — builds.
+- **citron** (`testing-android`) — LAN play (LDN, Android VPN tunnel), Diablo III hosts, Mii sync.
+- **tls-front** — imported from the local stack: Nintendo Account traffic to nnaccount-nx, capture, traces.
 
-Not every nx-mod change is merged into these testing branches yet; merges
-land repo by repo, then this repo is bumped. Games not listed here use
-NextendoNetwork's own servers unchanged.
+Every repo's README lists its own changes. ZeroTier work is on separate `zerotier` branches, not here.
+
+## Credits
+
+The Nextendo Network is the work of the **Nextendo Network team** — https://nextendo.network. nx-mod builds on it
+for LAN testing, with Crash Team Racing support by **CollectingW**. Nextendo is awesome.

@@ -1,0 +1,93 @@
+# Atmosphere hosts for the nextendo-testing stack on a LAN. run_all.ps1 -Action hosts fills in the addresses
+# and writes stack/out/hosts.txt: copy it to sd:/atmosphere/hosts/emummc.txt (or sysmmc.txt) and reboot.
+# ============================================================
+#  NEXTENDO NETWORK - Atmosphere DNS-MITM (LOCAL stack)
+#  Generated for the PC Wi-Fi LAN at ${HOST} (was hotspot 192.168.137.1).
+#  Atmosphere rule: the LAST matching line wins.
+#    '*' = 0+ chars   '%' = lp1
+#  Copy to BOTH:
+#    /atmosphere/hosts/sysmmc.txt
+#    /atmosphere/hosts/emummc.txt
+#  and set in /atmosphere/config/system_settings.ini:
+#    [atmosphere]
+#    enable_dns_mitm = u8!0x1
+# ============================================================
+
+# --- 1) All Nintendo -> local Nextendo stack ---
+${HOST}    *.nintendo.com
+${HOST}    *.nintendo.co.jp
+${HOST} accounts.nintendo.com
+${HOST} api.accounts.nintendo.com
+${HOST} m-lp1.baas.nintendo.com
+${HOST} e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com
+${HOST} cdn-image-e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com
+${HOST} capi.lp1.op2.nintendo.net
+${HOST} storage.hac.lp1.scsi.srv.nintendo.net
+${HOST} val.hac.penne.srv.nintendo.net
+${HOST} god.hac.lp1.penne.srv.nintendo.net
+${HOST} dauth-lp1.ndas.srv.nintendo.net
+${HOST} aauth.hac.lp1.ndas.srv.nintendo.net
+${HOST}    *.srv.nintendo.net
+${HOST}    *srv.nintendo.net
+${HOST} g2*.s.n.srv.nintendo.net
+
+# Per-game secure servers. Explicit lines because a mid-label '*' is ignored on
+# some Atmosphere builds. All point at the local stack - unlike the shipped
+# template, which sends MK8 to the public production IP.
+${HOST} g2b309e01-lp1.s.n.srv.nintendo.net
+${HOST} g23380901-lp1.s.n.srv.nintendo.net
+${HOST} g2ee2e300-lp1.s.n.srv.nintendo.net
+${HOST} g26cfaf00-lp1.s.n.srv.nintendo.net
+${HOST} g20de2100-lp1.s.n.srv.nintendo.net
+${HOST} g23932a00-lp1.s.n.srv.nintendo.net
+${HOST} g25c08801-lp1.s.n.srv.nintendo.net
+${HOST} g2df33d01-lp1.s.n.srv.nintendo.net
+
+# --- Splatoon 3 / NPLN (gRPC over HTTP/2, no g2* host) ---
+${HOST} t-dce9377b-lp1.lp1.t.npln.srv.nintendo.net
+${HOST} t-adf89f68-lp1.lp1.t.npln.srv.nintendo.net
+${HOST} gw.hac.lp1.vermillion.srv.nintendo.net
+${HOST} val.hac.lp1.penne.srv.nintendo.net
+${HOST} fro-3.hac.lp1.penne.srv.nintendo.net
+${HOST} dragons.hac.lp1.dragons.nintendo.net
+${HOST}    *.npln.nintendo.net
+${HOST} gamesync.npln.nintendo.net
+
+# --- BCAT (background content) ---
+${HOST} bcat-list-lp1.cdn.nintendo.net
+${HOST} bcat-data-lp1.cdn.nintendo.net
+${HOST} bcat-topics-lp1.cdn.nintendo.net
+
+# --- 2) NAT-check #2: MUST be a different IP from nncs1, or Pia dedups the
+#        probe, NAT never completes, and MK8/S2 fail with 2618-201 / test-103.
+#        ${HOST2} is a secondary address on this PC's Wi-Fi adapter;
+#        the nncs service listens on 0.0.0.0 so it answers on both.
+${HOST2}  nncs2-*.n.n.srv.nintendo.net
+
+# --- 3) ANTI-BAN: telemetry -> black hole ---
+0.0.0.0          receive-%.dg.srv.nintendo.net
+0.0.0.0          receive-%.er.srv.nintendo.net
+
+# --- 4) d4c (system update) -> NOT redirected ---
+# Do NOT null-route: nim stores a persistent flag.
+
+# --- 5) conntest (browser connectivity check) -> local stack ---
+${HOST} conntest.nintendowifi.net
+${HOST} ctest.cdn.nintendo.net
+
+# --- 6) Diablo III (Demonware "crimson") -> serveur local nextendo/diablo-3 ---
+# Hotes lus dans le NSO du jeu. Redirection LOCALE uniquement : la console ne
+# parle jamais aux serveurs officiels Activision.
+${HOST} crimson-switch-auth3.prod.demonware.net
+${HOST} crimson-switch-auth3.cert.demonware.net
+${HOST} crimson-switch-auth3.dev.demonware.net
+${HOST} crimson-switch-lobby.prod.demonware.net
+${HOST} crimson-switch-lobby.cert.demonware.net
+${HOST} crimson-switch-lobby.dev.demonware.net
+
+# --- 7) STUN Demonware -> local. Sans ca la console envoie ses sondes NAT
+# directement chez Activision (constate : 45 paquets UDP vers 185.34.107.128:3074).
+${HOST} stun.us.demonware.net
+${HOST} stun.eu.demonware.net
+${HOST} stun.jp.demonware.net
+${HOST} stun.au.demonware.net
