@@ -16,7 +16,8 @@ Network side only; each server repo keeps its own `TODO.md` (games too).
 
 ## Services
 
-- **bcat-nx**: confirm News on a console; game BCAT data (`nx_data_*`); per-game channels; `shop`/`movie` items.
+- **bcat-nx**: push new news to consoles (npns) instead of waiting for their scheduled check; opening a channel
+  (qlaunch `online_archives` format); game BCAT data (`nx_data_*`); per-game channels.
 - **baas-jwks**: test importing a new account; auto-add consoles linked on production; penne push stream (off).
 - **nnaccount-nx**: sign-in page look; password reset; account settings.
 - **sni-router**: no eShop server (eShop hosts dropped).
