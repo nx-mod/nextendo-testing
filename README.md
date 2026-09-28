@@ -13,12 +13,13 @@ Every submodule tracks its repo's `testing` branch:
 Layout
 ------
 
-    services/  account, dauth, scsi, nncs, nex, sni-router, baas-jwks,
-               dashboard, site, docs, and the nx-mod servers:
-               aauth-nx, tagaya-nx, npns-nx, telemetry-nx, bcat-nx,
-               eos-nx, gamespy-nx
-    games/     demonware (Diablo III), ssbu, acnh, advance-wars,
-               borderlands-1, torchlight-2
+    services/  account, dauth (dauth + aauth + licences), scsi, nncs, nex,
+               sni-router, baas-jwks, dashboard, site, docs, and the
+               nx-mod servers: nnaccount-nx, tls-front, tagaya-nx,
+               npns-nx, telemetry-nx, bcat-nx, eos-nx, gamespy-nx
+    games/     every Nextendo game server: demonware (Diablo III), ssbu,
+               acnh, mario-kart-8-deluxe, splatoon-2/3, super-mario-maker-2,
+               ... and nx-mod's advance-wars, borderlands-1, torchlight-2
     console/   prelude (the Switch homebrew), bcat-mitm-nx (bcat module)
     clients/   citron, citron-android, ryujinx, app-android, app-ios
 
@@ -41,10 +42,13 @@ Console sign-in, fully local (nothing goes to production):
 - A local CA for the stack's certificates, trusted by Prelude's browser
   bundles, so the console's browser accepts the stack (account-link page).
 
-New services (nx-mod): aauth (application tokens), tagaya (title version
-list), npns (push notifications), telemetry (sink), bcat (delivery cache,
-with bcat-mitm-nx on the console), eos (Epic Online Services), gamespy
-(Wii/DS Wi-Fi Connection).
+New services (nx-mod): nnaccount (the Nintendo Account side, private
+upstream), tls-front (TLS in front of the HTTP services), tagaya (title
+version list), npns (push notifications), telemetry (sink), bcat (a real
+delivery-cache server, with bcat-mitm-nx on the console; upstream installs
+BCAT data through Prelude and LayeredFS instead), eos (Epic Online
+Services), gamespy (Wii/DS Wi-Fi Connection). Application auth stays in
+dauth, which already serves it.
 
 Game servers: Diablo III (demonware) plays online on a CFW Switch;
 Advance Wars, Borderlands 1 and Torchlight 2 record unhandled NEX methods
