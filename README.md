@@ -11,6 +11,9 @@ cd nextendo-testing
 .\run_all.ps1 -Action hosts   # Atmosphere hosts for your LAN address -> stack\out\hosts.txt
 ```
 
+> **Firmware:** some console patches only work on select firmware (e.g. `nextendo_bcat_sig` is for 22.5.0's bcat).
+> On other firmware those features stay off until the patch is redone for it.
+
 Needs Go and git; devkitPro (with the switch SDL2 portlibs) and Git Bash for `nextendo-nx.nro`.
 
 ## Configuration
@@ -21,6 +24,9 @@ Needs Go and git; devkitPro (with the switch SDL2 portlibs) and Git Bash for `ne
 | `config/<server>.env` | each server's environment (`${HOST}`, `${CERTS}`, `${STATE}`... are filled in) |
 | `config/_games.env` | shared by every game server |
 | `stack/certs/`, `stack/secrets/` | the stack's CA, certificates, keys and secrets (incl. the CTR signing key) |
+| `gen_keys.ps1` | creates any missing key or certificate; `-Force` makes a fresh set (then rebuild nextendo-nx for the new CA) |
+| `stack/news/` | the HOME menu News items, one JSON file each: see `services/bcat-nx/NEWS.md` |
+| `TODO.md` | what is not working yet, and everything left until full functionality |
 | `games.txt` | the games, and the game versions known to work |
 
 LAN testing only: keys and secrets are committed on purpose, so anyone on the LAN can run the stack. Never point
