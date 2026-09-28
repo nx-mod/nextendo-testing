@@ -1,0 +1,120 @@
+[submodule "services/aauth-nx"]
+	path = services/aauth-nx
+	url = https://github.com/nx-mod/nextendo-aauth-nx.git
+	branch = testing
+[submodule "services/account"]
+	path = services/account
+	url = https://github.com/nx-mod/nextendo-account.git
+	branch = testing
+[submodule "games/acnh"]
+	path = games/acnh
+	url = https://github.com/nx-mod/nextendo-acnh.git
+	branch = testing
+[submodule "games/advance-wars"]
+	path = games/advance-wars
+	url = https://github.com/nx-mod/nextendo-advance-wars.git
+	branch = testing
+[submodule "clients/app-android"]
+	path = clients/app-android
+	url = https://github.com/nx-mod/nextendo-app-android.git
+	branch = testing
+[submodule "clients/app-ios"]
+	path = clients/app-ios
+	url = https://github.com/nx-mod/nextendo-app-ios.git
+	branch = testing
+[submodule "services/baas-jwks"]
+	path = services/baas-jwks
+	url = https://github.com/nx-mod/nextendo-baas-jwks.git
+	branch = testing
+[submodule "console/bcat-mitm-nx"]
+	path = console/bcat-mitm-nx
+	url = https://github.com/nx-mod/nextendo-bcat-mitm-nx.git
+	branch = testing
+[submodule "services/bcat-nx"]
+	path = services/bcat-nx
+	url = https://github.com/nx-mod/nextendo-bcat-nx.git
+	branch = testing
+[submodule "games/borderlands-1"]
+	path = games/borderlands-1
+	url = https://github.com/nx-mod/nextendo-borderlands-1.git
+	branch = testing
+[submodule "clients/citron"]
+	path = clients/citron
+	url = https://github.com/nx-mod/nextendo-citron.git
+	branch = testing
+[submodule "clients/citron-android"]
+	path = clients/citron-android
+	url = https://github.com/nx-mod/nextendo-citron-android.git
+	branch = testing
+[submodule "services/dashboard"]
+	path = services/dashboard
+	url = https://github.com/nx-mod/nextendo-dashboard.git
+	branch = testing
+[submodule "services/dauth"]
+	path = services/dauth
+	url = https://github.com/nx-mod/nextendo-dauth.git
+	branch = testing
+[submodule "games/demonware"]
+	path = games/demonware
+	url = https://github.com/nx-mod/nextendo-demonware.git
+	branch = testing
+[submodule "services/docs"]
+	path = services/docs
+	url = https://github.com/nx-mod/nextendo-docs.git
+	branch = testing
+[submodule "services/eos-nx"]
+	path = services/eos-nx
+	url = https://github.com/nx-mod/nextendo-eos-nx.git
+	branch = testing
+[submodule "services/gamespy-nx"]
+	path = services/gamespy-nx
+	url = https://github.com/nx-mod/nextendo-gamespy-nx.git
+	branch = testing
+[submodule "services/nex"]
+	path = services/nex
+	url = https://github.com/nx-mod/nextendo-nex.git
+	branch = testing
+[submodule "services/nncs"]
+	path = services/nncs
+	url = https://github.com/nx-mod/nextendo-nncs.git
+	branch = testing
+[submodule "services/npns-nx"]
+	path = services/npns-nx
+	url = https://github.com/nx-mod/nextendo-npns-nx.git
+	branch = testing
+[submodule "console/prelude"]
+	path = console/prelude
+	url = https://github.com/nx-mod/nextendo-prelude.git
+	branch = testing
+[submodule "clients/ryujinx"]
+	path = clients/ryujinx
+	url = https://github.com/nx-mod/nextendo-ryujinx.git
+	branch = testing
+[submodule "services/scsi"]
+	path = services/scsi
+	url = https://github.com/nx-mod/nextendo-scsi.git
+	branch = testing
+[submodule "services/site"]
+	path = services/site
+	url = https://github.com/nx-mod/nextendo-site.git
+	branch = testing
+[submodule "services/sni-router"]
+	path = services/sni-router
+	url = https://github.com/nx-mod/nextendo-sni-router.git
+	branch = testing
+[submodule "games/ssbu"]
+	path = games/ssbu
+	url = https://github.com/nx-mod/nextendo-ssbu.git
+	branch = testing
+[submodule "services/tagaya-nx"]
+	path = services/tagaya-nx
+	url = https://github.com/nx-mod/nextendo-tagaya-nx.git
+	branch = testing
+[submodule "services/telemetry-nx"]
+	path = services/telemetry-nx
+	url = https://github.com/nx-mod/nextendo-telemetry-nx.git
+	branch = testing
+[submodule "games/torchlight-2"]
+	path = games/torchlight-2
+	url = https://github.com/nx-mod/nextendo-torchlight-2.git
+	branch = testing
