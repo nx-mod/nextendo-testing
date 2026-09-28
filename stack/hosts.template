@@ -64,6 +64,12 @@ ${HOST} dragons.hac.lp1.dragons.nintendo.net
 ${HOST}    *.npln.nintendo.net
 ${HOST} gamesync.npln.nintendo.net
 
+# --- eShop (nim: beach, tagaya) and NSO (bcat: fw-api) -> the stack, never Nintendo ---
+# Without these they resolve through normal DNS and reach Nintendo. tagaya goes to tagaya-nx; the rest
+# hit sni-router's catch-all and are dropped.
+${HOST}    *.eshop.nintendo.net
+${HOST}    *.nso.nintendo.net
+
 # --- BCAT (background content) ---
 ${HOST} bcat-list-lp1.cdn.nintendo.net
 ${HOST} bcat-data-lp1.cdn.nintendo.net
@@ -76,7 +82,7 @@ ${HOST} bcat-topics-lp1.cdn.nintendo.net
 ${HOST2}  nncs2-*.n.n.srv.nintendo.net
 
 # --- 3) ANTI-BAN: telemetry -> the stack's telemetry sink (telemetry-nx), never Nintendo ---
-# Not 0.0.0.0: a null route may be what fails the console's Test Connection (2160-6000).
+# Reports land in telemetry-nx on the stack, so they stay local without null-routing them.
 ${HOST}    receive-%.dg.srv.nintendo.net
 ${HOST}    receive-%.er.srv.nintendo.net
 
