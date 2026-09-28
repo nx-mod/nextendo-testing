@@ -75,9 +75,10 @@ ${HOST} bcat-topics-lp1.cdn.nintendo.net
 #        the nncs service listens on 0.0.0.0 so it answers on both.
 ${HOST2}  nncs2-*.n.n.srv.nintendo.net
 
-# --- 3) ANTI-BAN: telemetry -> black hole ---
-0.0.0.0          receive-%.dg.srv.nintendo.net
-0.0.0.0          receive-%.er.srv.nintendo.net
+# --- 3) ANTI-BAN: telemetry -> the stack's telemetry sink (telemetry-nx), never Nintendo ---
+# Not 0.0.0.0: a null route may be what fails the console's Test Connection (2160-6000).
+${HOST}    receive-%.dg.srv.nintendo.net
+${HOST}    receive-%.er.srv.nintendo.net
 
 # --- 4) d4c (system update) -> NOT redirected ---
 # Do NOT null-route: nim stores a persistent flag.
