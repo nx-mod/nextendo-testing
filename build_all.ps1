@@ -55,7 +55,8 @@ $env:GOFLAGS = ''
 
 # nextendo-nx (the Prelude rewrite) as nextendo-nx.nro, pointed at this stack (needs devkitPro with the switch
 # SDL2 portlibs, and a bash with make, e.g. Git Bash).
-$dkp  = if ($env:DEVKITPRO) { $env:DEVKITPRO } else { 'C:\devkitPro' }
+# DEVKITPRO is often set msys-style (/opt/devkitpro), which Windows paths can't resolve: fall back to C:\devkitPro.
+$dkp  = if ($env:DEVKITPRO -and (Test-Path $env:DEVKITPRO)) { $env:DEVKITPRO } else { 'C:\devkitPro' }
 $bash = (Get-Command bash -ErrorAction SilentlyContinue).Source
 if (-not $bash -and (Test-Path 'C:\Program Files\Git\bin\bash.exe')) { $bash = 'C:\Program Files\Git\bin\bash.exe' }
 if ((Test-Path $dkp) -and $bash) {

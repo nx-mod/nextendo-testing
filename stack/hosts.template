@@ -42,6 +42,17 @@ ${HOST} g20de2100-lp1.s.n.srv.nintendo.net
 ${HOST} g23932a00-lp1.s.n.srv.nintendo.net
 ${HOST} g25c08801-lp1.s.n.srv.nintendo.net
 ${HOST} g2df33d01-lp1.s.n.srv.nintendo.net
+${HOST} g22306d00-lp1.s.n.srv.nintendo.net
+${HOST} g21f12900-lp1.s.n.srv.nintendo.net
+${HOST} g241c6800-lp1.s.n.srv.nintendo.net
+${HOST} g2e608000-lp1.s.n.srv.nintendo.net
+${HOST} g27723500-lp1.s.n.srv.nintendo.net
+${HOST} g2035bb00-lp1.s.n.srv.nintendo.net
+${HOST} g211a3f00-lp1.s.n.srv.nintendo.net
+${HOST} g28abaa00-lp1.s.n.srv.nintendo.net
+${HOST} g2896bd04-lp1.s.n.srv.nintendo.net
+${HOST} g255ba201-lp1.s.n.srv.nintendo.net
+${HOST} cdn.accounts.nintendo.com
 
 # --- Splatoon 3 / NPLN (gRPC over HTTP/2, no g2* host) ---
 ${HOST} t-dce9377b-lp1.lp1.t.npln.srv.nintendo.net

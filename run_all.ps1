@@ -101,8 +101,10 @@ switch ($Action) {
     'status' {
         $listening = Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty LocalPort -Unique
         foreach ($u in Get-Units) {
-            $ports = (Get-UnitEnv $u)['PORTS']
-            $running = @(Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq (Join-Path $bin "$($u.Name).exe") }).Count -gt 0
+            $uenv  = Get-UnitEnv $u
+            $ports = $uenv['PORTS']
+            $exe   = Join-Path $bin "$(if ($uenv['EXE']) { $uenv['EXE'] } else { $u.Name }).exe"
+            $running = @(Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $exe }).Count -gt 0
             $p = if ($ports) { ($ports -split ',' | ForEach-Object { $x = $_.Trim(); if ($listening -contains [int]$x) { ":$x up" } else { ":$x DOWN" } }) -join ' ' } else { '' }
             Write-Host ("  {0,-22} {1,-8} {2}" -f $u.Name, $(if ($running) { 'running' } else { 'stopped' }), $p)
         }
