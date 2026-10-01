@@ -1,1 +1,1 @@
-{ "title": "browser button test", "body": "browser button test", "button": { "type": "browser", "text": "Open nextendo.network", "url": "https://nextendo.network" }, "date": "2026-09-28T10:03:00Z" }
+{ "title": "browser button test", "body": "browser button test", "button": { "type": "browser", "text": "Open nextendo.network", "url": "https://nextendo.network" }, "date": "2026-09-28T10:03:00Z", "featured": true }

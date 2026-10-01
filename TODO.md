@@ -4,10 +4,10 @@ Network side only; each server repo keeps its own `TODO.md` (games too).
 
 ## In progress
 
+- **Penne push** (news and anything else reaching a console at once): frontline protocol being reversed from npns.
+- **News channel icons** show a question mark, and **opening a channel** fails: both formats are in qlaunch's code.
 - **Linking an offline user (2124-3121)**: baas-jwks now keeps what the console PATCHes into a user; retest.
-- **News "failed to load channel information"**: `nextendo_bcat_sig` now patches all four bcat signature checks;
-  reboot and retest Find channels.
-- **Half-linked users (2002-0001 on delete)**: nextendo-nx Users → Unlink, reboot, delete; retest.
+- **Half-linked users (2002-0001 on delete)**: nextendo-nx Users -> Unlink, reboot, delete; retest.
 
 ## Can't fix (for now)
 
